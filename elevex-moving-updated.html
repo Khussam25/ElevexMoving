@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevex Moving Company - Moving What Matters, Done Right</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --dark-navy: #1a1f3a;
+            --light-navy: #2d3561;
+            --slate: #4a5580;
+            --cream: #f8f7f5;
+            --text-dark: #1a1f3a;
+            --text-light: #f8f7f5;
+            --accent: #D4AF37;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ========== HEADER & NAVIGATION ========== */
+        header {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--light-navy) 100%);
+            color: var(--text-light);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent) 0%, #FFD700 100%);
+            color: var(--dark-navy);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--light-navy) 100%);
+            color: var(--text-light);
+            padding: 6rem 0 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 50px rgba(212, 175, 55, 0.4));
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: #d0d0d0;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button-light {
+            background: var(--cream);
+            color: var(--dark-navy);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button-light:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button-outline {
+            background: transparent;
+            color: var(--cream);
+            padding: 1rem 2rem;
+            border: 2px solid var(--cream);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button-outline:hover {
+            background: var(--cream);
+            color: var(--dark-navy);
+            transform: translateY(-4px);
+        }
+
+        /* ========== CONTACT INFO BANNER ========== */
+        .contact-banner {
+            background: linear-gradient(90deg, var(--accent) 0%, #FFD700 100%);
+            color: var(--dark-navy);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .contact-banner p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .contact-banner a {
+            color: var(--dark-navy);
+            text-decoration: none;
+            margin-left: 0.5rem;
+            font-weight: 700;
+        }
+
+        /* ========== SERVICES SECTION ========== */
+        .services {
+            padding: 6rem 0;
+            background: var(--cream);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--slate);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #FFD700);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-navy);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--light-navy) 100%);
+            color: var(--text-light);
+            padding: 6rem 0;
+        }
+
+        .about .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-feature {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .about-feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), #FFD700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .about-feature-text h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-feature-text p {
+            margin: 0;
+            color: #d0d0d0;
+            font-size: 0.95rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--accent) 0%, #FFD700 100%);
+            height: 400px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--dark-navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 60%);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(20px, 20px);
+            }
+        }
+
+        /* ========== QUOTE SECTION ========== */
+        .quote-section {
+            padding: 6rem 0;
+            background: var(--cream);
+        }
+
+        .quote-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-navy);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #FFD700 100%);
+            color: var(--dark-navy);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* ========== TESTIMONIALS SECTION ========== */
+        .testimonials {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--light-navy) 100%);
+            color: var(--text-light);
+            padding: 6rem 0;
+        }
+
+        .testimonials .section-title {
+            color: var(--text-light);
+            margin-bottom: 4rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #d0d0d0;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--dark-navy);
+            color: var(--text-light);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-section a {
+            color: #d0d0d0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #8a8a9a;
+            font-size: 0.9rem;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about .container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='wingGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23D4AF37;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cg id='wings'%3E%3C!-- Left Wing --%3E%3Cpath d='M 30 50 Q 20 45 10 50 Q 20 55 30 50' fill='url(%23wingGrad)' stroke='%23333' stroke-width='0.5'/%3E%3Cline x1='12' y1='48' x2='28' y2='50' stroke='%23333' stroke-width='0.3'/%3E%3Cline x1='14' y1='50' x2='28' y2='50' stroke='%23333' stroke-width='0.3'/%3E%3Cline x1='16' y1='52' x2='28' y2='50' stroke='%23333' stroke-width='0.3'/%3E%3C!-- Right Wing --%3E%3Cpath d='M 70 50 Q 80 45 90 50 Q 80 55 70 50' fill='url(%23wingGrad)' stroke='%23333' stroke-width='0.5'/%3E%3Cline x1='88' y1='48' x2='72' y2='50' stroke='%23333' stroke-width='0.3'/%3E%3Cline x1='86' y1='50' x2='72' y2='50' stroke='%23333' stroke-width='0.3'/%3E%3Cline x1='84' y1='52' x2='72' y2='50' stroke='%23333' stroke-width='0.3'/%3E%3C!-- X Center --%3E%3Cline x1='45' y1='40' x2='55' y2='60' stroke='url(%23wingGrad)' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='55' y1='40' x2='45' y2='60' stroke='url(%23wingGrad)' stroke-width='3' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E" alt="Elevex" class="logo-image">
+                    <div class="logo-text">ELEVEX<br>MOVING</div>
+                </a>
+                <nav>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#quote" class="nav-link">Get Quote</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <button class="cta-button" onclick="document.getElementById('quote').scrollIntoView({behavior: 'smooth'})">Get Started</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTACT BANNER -->
+    <div class="contact-banner">
+        <p>📞 Call us now: <a href="tel:+18573841842">(857) 384-1842</a> | 🌐 elevexmoving.com</p>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='wingGrad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23D4AF37;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='xGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23D4AF37;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23FFD700;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cg id='logo'%3E%3C!-- Left Wing --%3E%3Cpath d='M 80 120 Q 60 100 40 110 L 50 130 Q 65 120 85 130 Z' fill='url(%23wingGrad2)' stroke='%23333' stroke-width='1'/%3E%3Cline x1='45' y1='115' x2='80' y2='125' stroke='%23333' stroke-width='0.5'/%3E%3Cline x1='50' y1='120' x2='80' y2='125' stroke='%23333' stroke-width='0.5'/%3E%3Cline x1='55' y1='125' x2='80' y2='125' stroke='%23333' stroke-width='0.5'/%3E%3C!-- Right Wing --%3E%3Cpath d='M 320 120 Q 340 100 360 110 L 350 130 Q 335 120 315 130 Z' fill='url(%23wingGrad2)' stroke='%23333' stroke-width='1'/%3E%3Cline x1='355' y1='115' x2='320' y2='125' stroke='%23333' stroke-width='0.5'/%3E%3Cline x1='350' y1='120' x2='320' y2='125' stroke='%23333' stroke-width='0.5'/%3E%3Cline x1='345' y1='125' x2='320' y2='125' stroke='%23333' stroke-width='0.5'/%3E%3C!-- X Center --%3E%3Cline x1='170' y1='80' x2='230' y2='170' stroke='url(%23xGrad)' stroke-width='8' stroke-linecap='round'/%3E%3Cline x1='230' y1='80' x2='170' y2='170' stroke='url(%23xGrad)' stroke-width='8' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E" alt="Elevex Logo">
+                </div>
+                <h1>ELEVEX MOVING</h1>
+                <p class="hero-subtitle">Reach New Heights with Your Move</p>
+                <p class="hero-tagline">"Moving What Matters, Done Right"</p>
+                <div class="hero-cta">
+                    <button class="cta-button-light" onclick="document.getElementById('quote').scrollIntoView({behavior: 'smooth'})">Get Free Quote</button>
+                    <button class="cta-button-outline" onclick="alert('Learn more about our services')">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">We offer comprehensive moving solutions tailored to your needs</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>Local Moving</h3>
+                    <p>Fast, reliable local moving services with professional crews and modern equipment to ensure your belongings arrive safely.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌍</div>
+                    <h3>Long Distance</h3>
+                    <p>Cross-country moving with tracking, insurance, and white-glove service. We handle everything so you don't have to.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Packing & Storage</h3>
+                    <p>Expert packing services using quality materials, plus secure storage solutions for your peace of mind.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Commercial Moving</h3>
+                    <p>Professional office and commercial relocations with minimal downtime and maximum efficiency for your business.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎁</div>
+                    <h3>Specialty Items</h3>
+                    <p>Specialized handling for pianos, art, antiques, and other valuable items with precision care.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>White Glove Service</h3>
+                    <p>Premium service with careful handling, assembly/disassembly, and placement in your new home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>Why Choose Elevex?</h2>
+                <p>Since our founding, Elevex Moving has been committed to delivering exceptional moving experiences. With a fleet of modern vehicles and a team of trained professionals, we ensure your move is smooth, safe, and stress-free.</p>
+                <p>We understand that moving is more than just transporting belongings—it's about moving what matters most to you. That's why we treat every item with the care and respect it deserves.</p>
+                
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">⭐</div>
+                        <div class="about-feature-text">
+                            <h4>Fully Licensed & Insured</h4>
+                            <p>Complete protection for your belongings with comprehensive insurance coverage.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🤝</div>
+                        <div class="about-feature-text">
+                            <h4>Expert Team</h4>
+                            <p>Experienced movers trained in proper handling and customer service excellence.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">💰</div>
+                        <div class="about-feature-text">
+                            <h4>Competitive Pricing</h4>
+                            <p>Transparent quotes with no hidden fees. Get the best value for your money.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🏆</div>
+                        <div class="about-feature-text">
+                            <h4>Award-Winning Service</h4>
+                            <p>Trusted by thousands of satisfied customers across the region.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='truckGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgba(255,255,255,0.2);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgba(255,255,255,0);stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cg id='truck'%3E%3C!-- Truck body --%3E%3Crect x='80' y='120' width='220' height='90' fill='%23333' stroke='%23222' stroke-width='2' rx='5'/%3E%3C!-- Cabin --%3E%3Crect x='300' y='130' width='60' height='70' fill='%23444' stroke='%23222' stroke-width='2' rx='3'/%3E%3C!-- Windows --%3E%3Crect x='310' y='140' width='20' height='25' fill='%231a1f3a' stroke='%23555' stroke-width='1'/%3E%3Crect x='335' y='140' width='20' height='25' fill='%231a1f3a' stroke='%23555' stroke-width='1'/%3E%3C!-- Wheels --%3E%3Ccircle cx='120' cy='220' r='20' fill='%23222' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='280' cy='220' r='20' fill='%23222' stroke='%23111' stroke-width='2'/%3E%3C!-- Wheel details --%3E%3Ccircle cx='120' cy='220' r='12' fill='none' stroke='%23666' stroke-width='2'/%3E%3Ccircle cx='280' cy='220' r='12' fill='none' stroke='%23666' stroke-width='2'/%3E%3C!-- Bumper --%3E%3Crect x='75' y='210' width='230' height='6' fill='%23D4AF37' stroke='%23333' stroke-width='1'/%3E%3C!-- Loading door --%3E%3Crect x='85' y='125' width='80' height='80' fill='%23555' stroke='%23333' stroke-width='2'/%3E%3Cline x1='85' y1='165' x2='165' y2='165' stroke='%23333' stroke-width='1'/%3E%3C!-- Logo X --%3E%3Cline x1='115' y1='135' x2='145' y2='165' stroke='%23D4AF37' stroke-width='4' stroke-linecap='round'/%3E%3Cline x1='145' y1='135' x2='115' y2='165' stroke='%23D4AF37' stroke-width='4' stroke-linecap='round'/%3E%3C/g%3E%3C/svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Elevex made our move incredibly smooth. The team was professional, punctual, and treated our belongings like their own. Highly recommend!"</p>
+                    <p class="testimonial-author">- Sarah M.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I've used other moving companies before, but Elevex is in a league of their own. Great prices, amazing service, no complaints!"</p>
+                    <p class="testimonial-author">- James T.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Moving across the country was stressful, but Elevex handled it perfectly. Everything arrived on time and in perfect condition."</p>
+                    <p class="testimonial-author">- Emma R.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE SECTION -->
+    <section class="quote-section" id="quote">
+        <div class="container">
+            <h2 class="section-title">Get Your Free Quote</h2>
+            <p class="section-subtitle">Fill out the form below and we'll get back to you with a competitive estimate</p>
+            
+            <form class="quote-form" onsubmit="handleQuoteSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="from">Moving From</label>
+                    <input type="text" id="from" name="from" placeholder="City, State" required>
+                </div>
+                <div class="form-group">
+                    <label for="to">Moving To</label>
+                    <input type="text" id="to" name="to" placeholder="City, State" required>
+                </div>
+                <div class="form-group">
+                    <label for="movetype">Type of Move</label>
+                    <select id="movetype" name="movetype" required>
+                        <option value="">Select a type...</option>
+                        <option value="residential">Residential</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="storage">Storage</option>
+                        <option value="specialty">Specialty Items</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="details">Additional Details</label>
+                    <textarea id="details" name="details" placeholder="Tell us about your move..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Request Free Quote</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Elevex</h3>
+                    <p style="color: #d0d0d0; margin-bottom: 1rem;">Your trusted partner for professional moving services. Moving What Matters, Done Right.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#quote">Get Quote</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><a href="tel:+18573841842">(857) 384-1842</a></li>
+                        <li><a href="mailto:info@elevexmoving.com">info@elevexmoving.com</a></li>
+                        <li><a href="https://elevexmoving.com">elevexmoving.com</a></li>
+                        <li>Available 24/7</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Service Areas</h3>
+                    <ul>
+                        <li><a href="#">Local Moving</a></li>
+                        <li><a href="#">Long Distance</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Specialty Items</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Elevex Moving Company. All rights reserved. Moving What Matters, Done Right.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth navigation active state
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let currentSection = '';
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // In production, send to backend/email service
+            console.log('Form Data:', data);
+            alert(`Thank you, ${data.name}! We've received your quote request. We'll contact you at ${data.phone} soon.`);
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
